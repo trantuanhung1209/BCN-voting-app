@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon-vote.png" type="image/x-icon">
+    <title>Voting app</title>
+</head>
+
+<body>
+
+    <main class="main">
+        <div class="container">
+            <div class="main__wrap">
+                <h1 class="main__title">
+                    Bình chọn tiết mục được yêu thích nhất
+                </h1>
+
+                <div class="main__box--songs">
+                    <div class="main__box--songs-item">
+                        <div class="main__box--title">
+                            ĐƠN CA
+                        </div>
+
+                        <div class="main_box--content">
+                            <ul>
+                                <li>
+                                    <span>BA KỂ CON NGHE</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>THẤY MỪNG CHO EM</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>BẢN LÀNG EM</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>BAO LỜI CON CHƯA NÓI</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>YÊU XA</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>MASHUP VÙNG KÝ ỨC - LẠ LÙNG</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>JUST SAY HELLO</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>TRÁI TIM LỚN</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>HEAD IN THE CLOUDS</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>CHIỀU HÔM ẤY</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="main__box--songs-item">
+                        <div class="main__box--title main__box--radious-none">
+                            SONG CA / TAM CA
+                        </div>
+
+                        <div class="main_box--content">
+                            <ul>
+                                <li>
+                                    <span>MỘT VÒNG VIỆT NAM</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>TRÀN BỘ NHỚ</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>MUỐN KHÓC THẬT TO</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>NON NƯỚC HỮU TÌNH</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="main__box--songs-item">
+                        <div class="main__box--title main__box--radious-none">
+                            MÚA
+                        </div>
+
+                        <div class="main_box--content">
+                            <ul>
+                                <li>
+                                    <span>LÀNG XÌ TRUM</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="main__box--songs-item">
+                        <div class="main__box--title main__box--radious-none">
+                            RAP
+                        </div>
+
+                        <div class="main_box--content">
+                            <ul>
+                                <li>
+                                    <span>BƯỚC CHÂN RỰC RỠ</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="main__box--songs-item">
+                        <div class="main__box--title main__box--radious-none">
+                            TRÌNH DIỄN NHẠC CỤ
+                        </div>
+
+                        <div class="main_box--content">
+                            <ul>
+                                <li>
+                                    <span>LẠC TRÔI</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                                <li>
+                                    <span>MỘT NGÀN NỖI ĐAU</span>
+                                    <input type="checkbox" name="check" id="check-box">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button class="main__button--vote" button-vote>
+                    <h2>Bình chọn</h2>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <div class="container" overlay-confirm>
+        <div class="overlay ">
+            <div class="overlay--confirm">
+                <div class="overlay--content">
+                    Bạn muốn bình chọn tiết mục
+                    XXXXXXXXXXXXXXX?
+                </div>
+
+                <div class="overlay-action">
+                    <button class="overlay__button--cancel" button-cancel>
+                        Hủy
+                    </button>
+
+                    <button class="overlay__button--confirm" button-comfirm>
+                        Xác nhận
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container"  overlay-success>
+        <div class="overlay">
+            <div class="overlay--success">
+                <div class="overlay--content">
+                    Bình chọn thành công!
+                </div>
+                <button class="overlay__button--confirm" button-ok>
+                    OK
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
