@@ -11,26 +11,10 @@
 </head>
 
 <body>
+    <div class="alert--error" alert-error>
+    </div>
 
     <div class="alert" alert-confirm>
-        <div class="alert--confirm">
-            <div class="alert--content">
-                Bạn muốn bình chọn tiết mục
-                XXXXXXXXXXXXXXX?
-            </div>
-
-            <div class="alert-action">
-                <button class="alert__button--cancel" button-cancel>
-                    Hủy
-                </button>
-
-                <button class="alert__button--confirm" button-comfirm>
-                    Xác nhận
-                </button>
-            </div>
-        </div>
-
-        <div class="overlay" overlay-confirm></div>
     </div>
 
     <div class="alert" alert-ok>
@@ -64,7 +48,7 @@
                             <ul>
                                 <li>
                                     <form action="#" class="main__box-content--form">
-                                        <label for="sigle1" class="checkmark">
+                                        <label for="sigle1">
                                             BA KỂ CON NGHE
                                         </label>
                                         <input type="checkbox" checkbox name="check" id="sigle1">
@@ -112,7 +96,7 @@
                                             YÊU XA
                                         </label>
                                         <input type="checkbox" checkbox name="check" id="sigle5">
-                                        <label for="sigle4" class="custom-checkbox">
+                                        <label for="sigle5" class="custom-checkbox">
                                             <i class="fa-solid fa-check"></i>
                                         </label>
                                     </form>
@@ -145,7 +129,7 @@
                                             TRÁI TIM LỚN
                                         </label>
                                         <input type="checkbox" checkbox name="check" id="sigle8">
-                                        <label for="sigle4" class="custom-checkbox">
+                                        <label for="sigle8" class="custom-checkbox">
                                             <i class="fa-solid fa-check"></i>
                                         </label>
                                     </form>
@@ -318,24 +302,7 @@
         </div>
     </main>
 
-
-
-
-    <!-- <div class="container"  overlay-success>
-        <div class="overlay">
-            <div class="overlay--success">
-                <div class="overlay--content">
-                    Bình chọn thành công!
-                </div>
-                <button class="overlay__button--confirm" button-ok>
-                    OK
-                </button>
-
-            </div>
-        </div>
-    </div> -->
-
-    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/main.js"></script>
 </body>
 
 </html>

@@ -155,8 +155,8 @@ input[type="checkbox"] {
 /* Tạo hình dạng cho checkbox tùy chỉnh */
 .custom-checkbox {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border: 2px solid #16035B;
     border-radius: 50%; /* Làm tròn checkbox */
     position: relative;
@@ -171,8 +171,8 @@ input[type="checkbox"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    font-size: 14px;
+    color: #17FF32;
+    font-size: 17px;
 }
 
 /* Khi checkbox được chọn */
@@ -182,7 +182,7 @@ input[type="checkbox"]:checked + .custom-checkbox {
 }
 
 input[type="checkbox"]:disabled + .custom-checkbox {
-    background-color: #FF8AF3;
+    background-color: #C2C2C2;
     border-color: #fdfdfd;
 }
 
@@ -228,6 +228,7 @@ input[type="checkbox"]:checked + .custom-checkbox i {
     text-shadow: 2px 2px #5c5b5b;
 }
 
+/* alert */
 .alert {
     position: absolute;
     width: 100%;
@@ -343,3 +344,36 @@ input[type="checkbox"]:checked + .custom-checkbox i {
 [alert-confirm] {
     display: none;
 }
+
+.alert--error {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 9999;
+}
+
+.alert--error .alert--error__item {
+    background-color: rgba(190, 92, 92, 0.63);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.alert-close {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.alert-close:hover {
+    color: #FF8AF3;
+}
+
+/* end alert */
