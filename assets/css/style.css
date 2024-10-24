@@ -158,7 +158,8 @@ input[type="checkbox"] {
     width: 24px;
     height: 24px;
     border: 2px solid #16035B;
-    border-radius: 50%; /* Làm tròn checkbox */
+    border-radius: 50%;
+    /* Làm tròn checkbox */
     position: relative;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -176,18 +177,18 @@ input[type="checkbox"] {
 }
 
 /* Khi checkbox được chọn */
-input[type="checkbox"]:checked + .custom-checkbox {
+input[type="checkbox"]:checked+.custom-checkbox {
     background: linear-gradient(90deg, #FF8AF3 0%, #9286FF 100%);
     border-color: #ffffff;
 }
 
-input[type="checkbox"]:disabled + .custom-checkbox {
+input[type="checkbox"]:disabled+.custom-checkbox {
     background-color: #C2C2C2;
     border-color: #fdfdfd;
 }
 
 /* Hiển thị icon khi checkbox được chọn */
-input[type="checkbox"]:checked + .custom-checkbox i {
+input[type="checkbox"]:checked+.custom-checkbox i {
     display: inline-block;
 }
 
@@ -377,3 +378,31 @@ input[type="checkbox"]:checked + .custom-checkbox i {
 }
 
 /* end alert */
+
+.quantity-vote {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    border: 1px solid #FFFFFF;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+[list-performer] li:first-child {
+    background: linear-gradient(90deg, #FF8AF3 0%, #9286FF 100%);
+    background-size: 200% 100%;
+    animation: gradient-move 0.5s infinite;
+    border-radius: 8px 8px 0 0;
+    padding: 5px 0 0 0;
+}
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}

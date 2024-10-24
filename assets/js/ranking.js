@@ -61,7 +61,7 @@ onValue(performancesRef, (snapshot) => {
             <label for="sigle1">
                 ${item.name}
             </label>
-            <label for="#">${item.count}</label>
+            <label class = "quantity-vote" for="#">${item.count}</label>
         </form>
     </li>`;
 
