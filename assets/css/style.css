@@ -58,6 +58,14 @@ body {
     height: 120vh;
 }
 
+@media (max-width: 575.98px) {
+    .main {
+        background-position: center;
+    }
+}
+
+
+
 .main__wrap {
     display: flex;
     flex-direction: column;
@@ -110,20 +118,81 @@ body {
 
 .main_box--content ul li {
     border-bottom: 1px solid #000;
-    padding-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
+    padding-bottom: 12px;
+    display: block;
 }
 
 .main_box--content ul li:last-child {
     border-bottom: none;
 }
 
-.main_box--content ul li span {
+/* custom checkbox */
+
+.main__box-content--form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.main__box-content--form label:first-child {
+    display: inline-block;
     font-size: 16px;
     font-weight: 500;
     color: #16035B;
+    flex: 1;
 }
+
+.main__box-content--form input {
+    display: inline-block;
+}
+
+/* Ẩn checkbox mặc định */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* Tạo hình dạng cho checkbox tùy chỉnh */
+.custom-checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #16035B;
+    border-radius: 50%; /* Làm tròn checkbox */
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Ẩn icon Font Awesome mặc định */
+.custom-checkbox i {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+}
+
+/* Khi checkbox được chọn */
+input[type="checkbox"]:checked + .custom-checkbox {
+    background: linear-gradient(90deg, #FF8AF3 0%, #9286FF 100%);
+    border-color: #ffffff;
+}
+
+input[type="checkbox"]:disabled + .custom-checkbox {
+    background-color: #FF8AF3;
+    border-color: #fdfdfd;
+}
+
+/* Hiển thị icon khi checkbox được chọn */
+input[type="checkbox"]:checked + .custom-checkbox i {
+    display: inline-block;
+}
+
+
+/* end custom checkbox */
 
 .main__box--title {
     text-align: center;
@@ -274,4 +343,3 @@ body {
 [alert-confirm] {
     display: none;
 }
-
