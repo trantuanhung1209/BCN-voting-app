@@ -76,10 +76,16 @@ body {
 }
 
 .main__box--songs {
-    max-height: 592px;
+    max-height: 550px;
     border-radius: 15px;
     backdrop-filter: blur(9px);
     overflow-y: auto;
+}
+
+@media (max-width: 575.98px) {
+    .main__box--songs {
+        max-height: 592px;
+    }
 }
 
 .main__box--songs::-webkit-scrollbar {
