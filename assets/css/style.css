@@ -83,6 +83,12 @@ body {
     overflow-y: auto;
 }
 
+@media (max-width: 575.98px) {
+    .main__box--songs {
+        max-height: 592px;
+    }
+}
+
 .main__box--songs::-webkit-scrollbar {
     width: 0;
 
