@@ -1,44 +1,47 @@
 const buttonVote = document.querySelector("[button-vote]");
 const buttonCancel = document.querySelector("[button-cancel]");
-const buttonComfirm = document.querySelector("[button-comfirm]");
-const overlayConfirm = document.querySelector("[overlay-confirm]");
-const overlaySuccess = document.querySelector("[overlay-success]");
 const buttonOk = document.querySelector("[button-ok]");
+const buttonConfirm = document.querySelector("[button-comfirm]");
+const alertConfirm = document.querySelector("[alert-confirm]");
+const alertOk = document.querySelector("[alert-ok]");
+const overlayConfirm = document.querySelector("[overlay-confirm]");
+const overlayOk = document.querySelector("[overlay-ok]");
 
-if(overlayConfirm) {
+if (overlayConfirm) {
     overlayConfirm.addEventListener("click", () => {
-        overlayConfirm.style.display = "none";
+        alertConfirm.style.display = "none";
+        alertOk.style.display = "none";
     })
 }
 
-if(overlaySuccess) {
-    overlaySuccess.addEventListener("click", () => {
-        overlaySuccess.style.display = "none";
+if (overlayOk) {
+    overlayOk.addEventListener("click", () => {
+        alertConfirm.style.display = "none";
+        alertOk.style.display = "none";
     })
 }
 
-if(buttonVote) {
+if (buttonVote) {
     buttonVote.addEventListener("click", () => {
-        overlayConfirm.style.display = "block";
+        alertConfirm.style.display = "block";
     })
 }
 
-if(buttonCancel) {
+if (buttonConfirm) {
+    buttonConfirm.addEventListener("click", () => {
+        alertConfirm.style.display = "none";
+        alertOk.style.display = "block";
+    })
+}
+
+if (buttonCancel) {
     buttonCancel.addEventListener("click", () => {
-        overlayConfirm.style.display = "none";
+        alertConfirm.style.display = "none";
     })
 }
 
-if(buttonComfirm) {
-    buttonComfirm.addEventListener("click", () => {
-        overlaySuccess.style.display = "block";
-        overlayConfirm.style.display = "none";
-    })
-}
-
-if(buttonOk) {
+if (buttonOk) {
     buttonOk.addEventListener("click", () => {
-        overlaySuccess.style.display = "none";
-        overlayConfirm.style.display = "none";
+        alertOk.style.display = "none";
     })
 }

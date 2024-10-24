@@ -11,6 +11,41 @@
 
 <body>
 
+    <div class="alert" alert-confirm>
+        <div class="alert--confirm">
+            <div class="alert--content">
+                Bạn muốn bình chọn tiết mục
+                XXXXXXXXXXXXXXX?
+            </div>
+
+            <div class="alert-action">
+                <button class="alert__button--cancel" button-cancel>
+                    Hủy
+                </button>
+
+                <button class="alert__button--confirm" button-comfirm>
+                    Xác nhận
+                </button>
+            </div>
+        </div>
+
+        <div class="overlay" overlay-confirm></div>
+    </div>
+
+    <div class="alert" alert-ok>
+        <div class="alert--confirm">
+            <div class="alert--content" content-ok>
+                Bình chọn thành công!
+            </div>
+
+            <button class="alert__button--confirm" button-ok>
+                OK
+            </button>
+        </div>
+
+        <div class="overlay" overlay-ok></div>
+    </div>
+
     <main class="main">
         <div class="container">
             <div class="main__wrap">
@@ -156,28 +191,10 @@
         </div>
     </main>
 
-    <div class="container" overlay-confirm>
-        <div class="overlay ">
-            <div class="overlay--confirm">
-                <div class="overlay--content">
-                    Bạn muốn bình chọn tiết mục
-                    XXXXXXXXXXXXXXX?
-                </div>
 
-                <div class="overlay-action">
-                    <button class="overlay__button--cancel" button-cancel>
-                        Hủy
-                    </button>
 
-                    <button class="overlay__button--confirm" button-comfirm>
-                        Xác nhận
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="container"  overlay-success>
+    <!-- <div class="container"  overlay-success>
         <div class="overlay">
             <div class="overlay--success">
                 <div class="overlay--content">
@@ -189,7 +206,7 @@
 
             </div>
         </div>
-    </div>
+    </div> -->
 
     <script src="assets/js/main.js"></script>
 </body>
