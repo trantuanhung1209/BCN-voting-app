@@ -107,6 +107,12 @@ body {
     padding: 0 40px;
 }
 
+@media (max-width: 575.98px) {
+    .main_box--content {
+        padding: 0 16px;
+    }
+}
+
 .main_box--content ul {
     margin: 0;
     padding: 15px 0 10px 0;
