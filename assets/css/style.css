@@ -76,7 +76,7 @@ body {
 }
 
 .main__box--songs {
-    max-height: 550px;
+    max-height: 530px;
     border-radius: 15px;
     backdrop-filter: blur(9px);
     overflow-y: auto;
