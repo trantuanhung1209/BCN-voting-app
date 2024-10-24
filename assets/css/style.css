@@ -55,6 +55,7 @@ body {
     background-image: url("/assets/images/background.png");
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
 }
 
 .main__wrap {
@@ -65,7 +66,7 @@ body {
 }
 
 .main__title {
-    padding-top: 97px;
+    padding-top: 50px;
     margin: 0;
     font-size: 32px;
     font-weight: 900;
@@ -76,7 +77,7 @@ body {
 }
 
 .main__box--songs {
-    max-height: 530px;
+    max-height: 500px;
     border-radius: 15px;
     backdrop-filter: blur(9px);
     overflow-y: auto;
