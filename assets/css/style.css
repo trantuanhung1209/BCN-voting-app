@@ -55,7 +55,7 @@ body {
     background-image: url("/assets/images/background.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 120vh;
+    height: 110vh;
 }
 
 @media (max-width: 575.98px) {
@@ -64,7 +64,11 @@ body {
     }
 }
 
-
+@media (max-width: 411.98px) {
+    .main {
+        height: 120vh;
+    }
+}
 
 .main__wrap {
     display: flex;
@@ -84,8 +88,14 @@ body {
     text-align: center;
 }
 
+@media (max-width: 575.98px) {
+    .main__title {
+        padding-top: 30px;
+    }
+}
+
 .main__box--songs {
-    max-height: 530px;
+    max-height: 520px;
     border-radius: 15px;
     backdrop-filter: blur(9px);
     overflow-y: auto;
@@ -93,7 +103,7 @@ body {
 
 @media (max-width: 575.98px) {
     .main__box--songs {
-        max-height: 592px;
+        max-height: 500px;
     }
 }
 
@@ -292,7 +302,7 @@ input[type="checkbox"]:checked+.custom-checkbox i {
 
 @media (max-width: 541.98px) {
     .alert--confirm {
-        top: 40%;
+        top: 24%;
         left: 10%;
         width: 80%;
     }

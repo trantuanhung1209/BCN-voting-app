@@ -32,10 +32,12 @@ function groupDuplicates(arr) {
 
     return result;
 }
-
-let ids = [];
-let datas = [];
 onValue(performancesRef, (snapshot) => {
+
+
+    let ids = [];
+    let datas = [];
+
     snapshot.forEach((item) => {
         const key = item.key;
         const data = item.val();
