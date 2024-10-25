@@ -47,31 +47,39 @@ const showAlert = (content = null, time = 3000) => {
 // End show alert
 
 // enable and disable check-box
-let checkboxId = null;
 const inputCheckBoxes = document.querySelectorAll("[type='checkbox']"); // Chọn tất cả các checkbox đúng cách
+console.log(inputCheckBoxes);
 
+// Kiểm tra nếu người dùng đã bình chọn
+if (localStorage.getItem('voted') === 'true') {
+    // Chuyển hướng người dùng đến trang block.html
+    window.location.href = 'block.html';
+}
+
+const checkboxIds = [];
 if (inputCheckBoxes) {
     inputCheckBoxes.forEach(checkbox => {
         checkbox.addEventListener("change", function () {
             if (checkbox.checked) {
                 // Lấy ID của checkbox đã chọn
-                checkboxId = checkbox.id;
+                checkboxIds.push(checkbox.id);
+                console.log(checkboxIds);
                 // console.log("Checked checkbox ID: ", checkboxId);
 
-                // Vô hiệu hóa các checkbox khác
-                inputCheckBoxes.forEach(cb => {
-                    if (cb !== checkbox) {
-                        cb.disabled = true;
-                    }
-                });
-            } else {
-                // Kích hoạt lại tất cả các checkbox khác
-                inputCheckBoxes.forEach(cb => {
-                    if (cb !== checkbox) {
-                        cb.disabled = false;
-                    }
-                });
-                checkboxId = null; // Đặt lại giá trị checkboxId khi không có checkbox nào được chọn
+                // Lưu trạng thái "đã bình chọn" vào Local Storage
+                localStorage.setItem('voted', 'true');
+
+                // // Vô hiệu hóa tất cả các checkbox
+                // inputCheckBoxes.forEach(cb => {
+                //     cb.disabled = true;
+                // });
+
+                // // Vô hiệu hóa các checkbox khác
+                // inputCheckBoxes.forEach(cb => {
+                //     if (cb !== checkbox) {
+                //         cb.disabled = true;
+                //     }
+                // });
             }
         });
     });
@@ -94,12 +102,12 @@ if (overlayOk) {
             if (checkbox.checked) {
                 checkbox.checked = false;
 
-                // Vô hiệu hóa các checkbox khác
-                inputCheckBoxes.forEach(cb => {
-                    if (cb !== checkbox) {
-                        cb.disabled = false;
-                    }
-                });
+                // // Vô hiệu hóa các checkbox khác
+                // inputCheckBoxes.forEach(cb => {
+                //     if (cb !== checkbox) {
+                //         cb.disabled = false;
+                //     }
+                // });
             }
         })
 
@@ -108,16 +116,30 @@ if (overlayOk) {
 }
 
 if (buttonVote) {
+    const listLable = [];
     buttonVote.addEventListener("click", () => {
-        if (checkboxId) {
-            const elementLable = document.querySelector(`label[for = "${checkboxId}"]`);
-            if (elementLable) {
-                const content = elementLable.textContent.trim();
+
+        if (checkboxIds.length === 0) {
+            showAlert("Bạn cần chọn tiết mục trước khi bình chọn!", 3000);
+            return;
+        } else {
+            checkboxIds.forEach(checkboxId => {
+                const elementLable = document.querySelector(`label[for = "${checkboxId}"]`);
+                if (elementLable) {
+                    const content = elementLable.textContent.trim();
+                    listLable.push(content);
+                }
+            })
+        }
+
+        console.log(listLable);
+
+        if (listLable.length) {
+            listLable.forEach(content => {
                 if (content) {
                     const html = `<div class="alert--confirm">
                 <div class="alert--content">
-                    Bạn muốn bình chọn tiết mục
-                    ${content} ?
+                    Bạn có chắc chắn với lựa chọn của mình ?
                 </div>
     
                 <div class="alert-action">
@@ -136,11 +158,8 @@ if (buttonVote) {
                     alertConfirm.innerHTML = html;
                     alertConfirm.style.display = "block";
                 }
-            }
-        } else {
-            showAlert("Bạn cần chọn tiết mục trước khi bình chọn!", 3000);
+            })
         }
-
 
         const buttonCancel = document.querySelector("[button-cancel]");
         if (buttonCancel) {
@@ -153,28 +172,22 @@ if (buttonVote) {
         const buttonConfirm = document.querySelector("[button-comfirm]");
         if (buttonConfirm) {
             buttonConfirm.addEventListener("click", () => {
-                const elementLable = document.querySelector(`label[for = "${checkboxId}"]`);
-                const content = elementLable.textContent.trim();
-                console.log(content);
 
-                if (checkboxId) {
-                    const elementLable = document.querySelector(`label[for = "${checkboxId}"]`);
-                    if (elementLable) {
-                        const content = elementLable.textContent.trim();
+                listLable.forEach(content => {
+                    if (content) {
 
-                        if (content) {
+                        const dataPerformance = {
+                            namePerformance: `${content}`,
+                            quantity: 1
+                        };
 
-                            const dataPerformance = {
-                                namePerformance: `${content}`,
-                                quantity: 1
-                            };
+                        const newPerformanceRef = push(performancesRef);
 
-                            const newPerformanceRef = push(performancesRef);
-
-                            set(newPerformanceRef, dataPerformance);
-                        }
+                        set(newPerformanceRef, dataPerformance);
+                    } else {
+                        showAlert("Có lỗi xảy ra, vui lòng thử lại sau!", 3000);
                     }
-                }
+                })
 
                 alertConfirm.style.display = "none";
                 alertOk.style.display = "block";
@@ -199,12 +212,12 @@ if (buttonOk) {
             if (checkbox.checked) {
                 checkbox.checked = false;
 
-                // Vô hiệu hóa các checkbox khác
-                inputCheckBoxes.forEach(cb => {
-                    if (cb !== checkbox) {
-                        cb.disabled = false;
-                    }
-                });
+                // // Vô hiệu hóa các checkbox khác
+                // inputCheckBoxes.forEach(cb => {
+                //     if (cb !== checkbox) {
+                //         cb.disabled = false;
+                //     }
+                // });
             }
         })
 

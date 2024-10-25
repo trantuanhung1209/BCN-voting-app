@@ -34,7 +34,6 @@ function groupDuplicates(arr) {
 }
 
 onValue(performancesRef, (snapshot) => {
-
     let ids = [];
     let datas = [];
 
@@ -45,31 +44,53 @@ onValue(performancesRef, (snapshot) => {
         datas.push(data.namePerformance);
     });
 
-    // Call groupDuplicates here after datas has been populated
+    // Group duplicates and sort by count
     const groupedNames = groupDuplicates(datas).sort((a, b) => b.count - a.count);
 
     const listPerformer = document.querySelector("[list-performer]");
 
-    const htmls = [];
-
-    // Build the HTML content for each performer
-    groupedNames.forEach(item => {
-        console.log(item.name);
-        console.log(item.count);
-
-        // Append each performer name and count to the htmls array
-        const elementLi = `<li>
-        <form action="#" class="main__box-content--form">
-            <label for="sigle1">
-                ${item.name}
-            </label>
-            <label class = "quantity-vote" for="#">${item.count}</label>
-        </form>
-    </li>`;
-
-        htmls.push(elementLi);
+    // Lưu trữ vị trí hiện tại của từng thẻ <li> trước khi cập nhật
+    const currentPositions = {};
+    document.querySelectorAll('.performer-item').forEach((item, index) => {
+        currentPositions[item.dataset.name] = item.getBoundingClientRect().top;
     });
 
-    // Join the htmls array and insert into the list-performer element
-    listPerformer.innerHTML = htmls.join('');
+    // Cập nhật HTML với dữ liệu mới
+    const htmls = groupedNames.map(item => `
+        <li class="performer-item" data-name="${item.name}">
+            <form action="#" class="main__box-content--form">
+                <label>${item.name}</label>
+                <label class="quantity-vote">${item.count}</label>
+            </form>
+        </li>
+    `).join('');
+
+    listPerformer.innerHTML = htmls;
+
+    // Tính toán vị trí mới của từng thẻ <li> và tạo animation mượt mà
+    document.querySelectorAll('.performer-item').forEach((item) => {
+        const name = item.dataset.name;
+        const newPosition = item.getBoundingClientRect().top;
+        const oldPosition = currentPositions[name];
+
+        // Nếu có sự thay đổi vị trí, áp dụng hiệu ứng di chuyển
+        if (oldPosition !== undefined) {
+            anime({
+                targets: item,
+                translateY: [oldPosition - newPosition, 0], // Di chuyển từ vị trí cũ đến vị trí mới
+                duration: 1000,
+                easing: 'easeOutExpo'
+            });
+        } else {
+            // Đối với các phần tử mới, làm hiệu ứng mờ dần vào
+            anime({
+                targets: item,
+                opacity: [0, 1],
+                translateY: [20, 0],
+                duration: 1000,
+                easing: 'easeOutExpo'
+            });
+        }
+    });
 });
+
