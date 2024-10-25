@@ -60,12 +60,16 @@ onValue(performancesRef, (snapshot) => {
         <li class="performer-item" data-name="${item.name}">
             <form action="#" class="main__box-content--form">
                 <label>${item.name}</label>
-                <label class="quantity-vote">${item.count}</label>
+                <label class="quantity-vote">${(((item.count) / ids.length) * 100 ).toFixed(2) }% </label>
             </form>
         </li>
     `).join('');
 
     listPerformer.innerHTML = htmls;
+
+    console.log(ids.length);
+
+    
 
     // Tính toán vị trí mới của từng thẻ <li> và tạo animation mượt mà
     document.querySelectorAll('.performer-item').forEach((item) => {
@@ -93,4 +97,6 @@ onValue(performancesRef, (snapshot) => {
         }
     });
 });
+
+
 

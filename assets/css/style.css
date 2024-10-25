@@ -75,17 +75,36 @@ body {
     flex-direction: column;
     gap: 26px;
     padding: 0 16px 49px 16px;
+    z-index: 9;
+    position: relative;
 }
 
 .main__title {
-    padding-top: 50px;
-    margin: 0;
-    font-size: 32px;
-    font-weight: 900;
-    color: white;
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke: 1px black;
+    text-transform: uppercase;
+    background-image: linear-gradient(-225deg,
+            #FF8AF3 0%,
+            #ffffff 50%,
+            #9286FF 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 1s linear infinite;
+    display: inline-block;
+    font-size: 36px;
+    font-weight: 700;
     text-align: center;
+    padding-top: 50px;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
 }
 
 @media (max-width: 575.98px) {
@@ -276,7 +295,7 @@ input[type="checkbox"]:checked+.custom-checkbox i {
     gap: 52px;
     padding: 68px 25px 25px 25px;
     border-radius: 15px;
-    z-index: 999;
+    z-index: 99999;
 }
 
 
@@ -313,7 +332,7 @@ input[type="checkbox"]:checked+.custom-checkbox i {
 .alert--content {
     font-size: 20px;
     font-weight: 500;
-    align-items: center;
+    text-align: center;
     -webkit-text-fill-color: white;
     -webkit-text-stroke: 1px #FA7CF28C;
 }
@@ -370,7 +389,7 @@ input[type="checkbox"]:checked+.custom-checkbox i {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    z-index: 9999;
+    z-index: 99999;
 }
 
 .alert--error .alert--error__item {
@@ -411,7 +430,6 @@ input[type="checkbox"]:checked+.custom-checkbox i {
     justify-content: space-between;
     align-items: center;
     color: white;
-    border: 1px solid #FFFFFF;
     padding: 5px;
     border-radius: 8px;
 }
@@ -422,7 +440,7 @@ input[type="checkbox"]:checked+.custom-checkbox i {
     animation: gradient-move 0.5s infinite;
     border-radius: 8px 8px 0 0;
     padding: 5px 0 0 0;
-    
+
 }
 
 [list-performer] li:first-child label {
@@ -440,4 +458,14 @@ input[type="checkbox"]:checked+.custom-checkbox i {
     100% {
         background-position: 100% 50%;
     }
+}
+
+/* congratulations */
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
 }
