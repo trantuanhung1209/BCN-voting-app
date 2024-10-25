@@ -393,6 +393,16 @@ input[type="checkbox"]:checked+.custom-checkbox i {
     color: #FF8AF3;
 }
 
+[content-block] {
+    padding-bottom: 32px;
+    font-size: 25px;
+    text-align: center;
+}
+
+[button-block] {
+    display: block;
+}
+
 /* end alert */
 
 .quantity-vote {

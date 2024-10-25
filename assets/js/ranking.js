@@ -32,8 +32,8 @@ function groupDuplicates(arr) {
 
     return result;
 }
-onValue(performancesRef, (snapshot) => {
 
+onValue(performancesRef, (snapshot) => {
 
     let ids = [];
     let datas = [];
