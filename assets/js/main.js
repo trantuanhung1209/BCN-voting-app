@@ -178,7 +178,6 @@ if (buttonVote) {
 
                         const dataPerformance = {
                             namePerformance: `${content}`,
-                            quantity: 1
                         };
 
                         const newPerformanceRef = push(performancesRef);

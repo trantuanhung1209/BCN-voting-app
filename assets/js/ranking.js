@@ -96,6 +96,8 @@ onValue(performancesRef, (snapshot) => {
             });
         }
     });
+
+    console.log(groupedNames);
 });
 
 
