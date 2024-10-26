@@ -52,7 +52,8 @@ body {
 /* End container */
 
 .main {
-    background-image: url("/assets/images/background.png");
+    /* background-image: url("/assets/images/background.png"); */
+    background-color: #FF8AF3;
     background-repeat: no-repeat;
     background-size: cover;
     height: 110vh;
@@ -60,7 +61,7 @@ body {
 
 @media (max-width: 575.98px) {
     .main {
-        background-image: url("/assets/images/bg.png");
+        /* background-image: url("/assets/images/bg.png"); */
     }
 }
 
@@ -101,7 +102,8 @@ body {
     padding-top: 50px;
 }
 
-@keyframes textclip {
+/* comment demo */
+/* @keyframes textclip {
     to {
         background-position: 200% center;
     }
@@ -111,7 +113,8 @@ body {
     .main__title {
         padding-top: 30px;
     }
-}
+} */
+/*End comment demo */
 
 .main__box--songs {
     max-height: 520px;
@@ -450,7 +453,9 @@ input[type="checkbox"]:checked+.custom-checkbox i {
     text-align: center;
 }
 
-@keyframes gradient-move {
+/* comment demo */
+
+/* @keyframes gradient-move {
     0% {
         background-position: 0% 50%;
     }
@@ -458,7 +463,10 @@ input[type="checkbox"]:checked+.custom-checkbox i {
     100% {
         background-position: 100% 50%;
     }
-}
+} */
+
+/* End comment demo */
+
 
 /* congratulations */
 #canvas {

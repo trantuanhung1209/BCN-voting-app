@@ -1,18 +1,31 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getDatabase, ref, push, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
+//firebase config a Hung
+// const firebaseConfig = {
+//     apiKey: "AIzaSyDFIW4HVIG0usA868ltUJ_eTukLixdoT2A",
+//     authDomain: "hcyu-fit.firebaseapp.com",
+//     databaseURL: "https://hcyu-fit-default-rtdb.firebaseio.com",
+//     projectId: "hcyu-fit",
+//     storageBucket: "hcyu-fit.appspot.com",
+//     messagingSenderId: "1059484411477",
+//     appId: "1:1059484411477:web:83aca0a7b469d1fc5fd6dc"
+// };
+
+//My firebase config 
 const firebaseConfig = {
     apiKey: "AIzaSyCAgJndV6rdgtlIpQ5cjuUrL9KSbCS6fTU",
     authDomain: "votting-app-52c6c.firebaseapp.com",
+    databaseURL: "https://votting-app-52c6c-default-rtdb.firebaseio.com",
     projectId: "votting-app-52c6c",
     storageBucket: "votting-app-52c6c.appspot.com",
     messagingSenderId: "868756643395",
     appId: "1:868756643395:web:5abc86da00bdfac3d8fef6"
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
 const db = getDatabase();
 const performancesRef = ref(db, 'performance');
 
@@ -48,13 +61,17 @@ const showAlert = (content = null, time = 3000) => {
 
 // enable and disable check-box
 const inputCheckBoxes = document.querySelectorAll("[type='checkbox']"); // Chọn tất cả các checkbox đúng cách
-console.log(inputCheckBoxes);
 
-// Kiểm tra nếu người dùng đã bình chọn
-if (localStorage.getItem('voted') === 'true') {
-    // Chuyển hướng người dùng đến trang block.html
-    window.location.href = 'block.html';
-}
+//comment demo
+// if (localStorage.getItem('voted') === 'true') {
+//     window.location.href = 'block.html';
+// } else {
+//     setInterval(() => {
+//         localStorage.setItem("voted", "true");
+//         window.location.reload();
+//     }, 5 * 60 * 1000);
+// }
+// End comment demo
 
 const checkboxIds = [];
 if (inputCheckBoxes) {
@@ -63,23 +80,22 @@ if (inputCheckBoxes) {
             if (checkbox.checked) {
                 // Lấy ID của checkbox đã chọn
                 checkboxIds.push(checkbox.id);
-                console.log(checkboxIds);
+                // console.log(checkboxIds);
                 // console.log("Checked checkbox ID: ", checkboxId);
 
-                // Lưu trạng thái "đã bình chọn" vào Local Storage
-                localStorage.setItem('voted', 'true');
 
-                // // Vô hiệu hóa tất cả các checkbox
-                // inputCheckBoxes.forEach(cb => {
-                //     cb.disabled = true;
-                // });
+                //comment demo
+                // localStorage.setItem('voted', 'true');
+                //end comment demo
 
-                // // Vô hiệu hóa các checkbox khác
-                // inputCheckBoxes.forEach(cb => {
-                //     if (cb !== checkbox) {
-                //         cb.disabled = true;
-                //     }
-                // });
+                console.log(checkboxIds);
+            } else {
+                // Remove the ID from the array if it is unchecked
+                const index = checkboxIds.indexOf(checkbox.id);
+                if (index > -1) {
+                    checkboxIds.splice(index, 1);
+                }
+                console.log(checkboxIds);
             }
         });
     });
@@ -94,20 +110,11 @@ const alertConfirm = document.querySelector("[alert-confirm]");
 const alertOk = document.querySelector("[alert-ok]");
 const overlayOk = document.querySelector("[overlay-ok]");
 
-
-
 if (overlayOk) {
     overlayOk.addEventListener("click", () => {
         inputCheckBoxes.forEach(checkbox => {
             if (checkbox.checked) {
                 checkbox.checked = false;
-
-                // // Vô hiệu hóa các checkbox khác
-                // inputCheckBoxes.forEach(cb => {
-                //     if (cb !== checkbox) {
-                //         cb.disabled = false;
-                //     }
-                // });
             }
         })
 
@@ -131,8 +138,6 @@ if (buttonVote) {
                 }
             })
         }
-
-        console.log(listLable);
 
         if (listLable.length) {
             listLable.forEach(content => {
@@ -175,7 +180,6 @@ if (buttonVote) {
 
                 listLable.forEach(content => {
                     if (content) {
-
                         const dataPerformance = {
                             namePerformance: `${content}`,
                         };
@@ -210,13 +214,6 @@ if (buttonOk) {
         inputCheckBoxes.forEach(checkbox => {
             if (checkbox.checked) {
                 checkbox.checked = false;
-
-                // // Vô hiệu hóa các checkbox khác
-                // inputCheckBoxes.forEach(cb => {
-                //     if (cb !== checkbox) {
-                //         cb.disabled = false;
-                //     }
-                // });
             }
         })
 
