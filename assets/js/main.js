@@ -51,10 +51,10 @@ const inputCheckBoxes = document.querySelectorAll("[type='checkbox']"); // Chọ
 console.log(inputCheckBoxes);
 
 // Kiểm tra nếu người dùng đã bình chọn
-// if (localStorage.getItem('voted') === 'true') {
-//     // Chuyển hướng người dùng đến trang block.html
-//     window.location.href = 'block.html';
-// }
+if (localStorage.getItem('voted') === 'true') {
+    // Chuyển hướng người dùng đến trang block.html
+    window.location.href = 'block.html';
+}
 
 const checkboxIds = [];
 if (inputCheckBoxes) {
@@ -225,6 +225,7 @@ if (buttonOk) {
     })
 }
 // End display and hidden alert
+
 
 
 

@@ -60,7 +60,7 @@ body {
 
 @media (max-width: 575.98px) {
     .main {
-        background-position: center;
+        background-image: url("/assets/images/bg.png");
     }
 }
 
@@ -469,3 +469,19 @@ input[type="checkbox"]:checked+.custom-checkbox i {
     height: 100%;
     opacity: 0.5;
 }
+
+/* countdown */
+.countdown {
+    position: absolute;
+    display: inline-flex;
+    padding: 10px 20px;
+    top: 0px;
+    right: 0px;
+    background: linear-gradient(90deg, rgba(255, 6, 230, 0.5) 0%, rgba(29, 4, 255, 0.5) 100%);
+    border: 1px solid #FFFFFF;
+    font-weight: 900;
+    font-size: 18px;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke: 1px #FA7CF28C;
+}
+/* End countdown */

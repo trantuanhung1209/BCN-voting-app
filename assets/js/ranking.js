@@ -60,7 +60,7 @@ onValue(performancesRef, (snapshot) => {
         <li class="performer-item" data-name="${item.name}">
             <form action="#" class="main__box-content--form">
                 <label>${item.name}</label>
-                <label class="quantity-vote">${(((item.count) / ids.length) * 100 ).toFixed(2) }% </label>
+                <label class="quantity-vote">${(((item.count) / ids.length) * 100 ).toFixed(2) >= 100 ? 100 : (((item.count) / ids.length) * 100 ).toFixed(2) }% </label>
             </form>
         </li>
     `).join('');
