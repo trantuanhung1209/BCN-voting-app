@@ -51,7 +51,7 @@ const inputCheckBoxes = document.querySelectorAll("[type='checkbox']"); // Chọ
 console.log(inputCheckBoxes);
 
 // Kiểm tra nếu người dùng đã bình chọn
-if (localStorage.getItem('voted') === 'true') {
+if (sessionStorage.getItem('voted') === 'true') {
     // Chuyển hướng người dùng đến trang block.html
     window.location.href = 'block.html';
 }
@@ -67,7 +67,7 @@ if (inputCheckBoxes) {
                 // console.log("Checked checkbox ID: ", checkboxId);
 
                 // Lưu trạng thái "đã bình chọn" vào Local Storage
-                localStorage.setItem('voted', 'true');
+                sessionStorage.setItem('voted', 'true');
 
                 // // Vô hiệu hóa tất cả các checkbox
                 // inputCheckBoxes.forEach(cb => {
