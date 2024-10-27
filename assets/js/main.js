@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getDatabase, ref, push, set, onValue, update, remove } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-//firebase config a Hung
+//firebase config a Hung comment demo
 // const firebaseConfig = {
 //     apiKey: "AIzaSyDFIW4HVIG0usA868ltUJ_eTukLixdoT2A",
 //     authDomain: "hcyu-fit.firebaseapp.com",
@@ -28,7 +28,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const performancesRef = ref(db, 'performance');
+const countRef = ref(db, 'voteCount');
 
+// lazy loading
+window.addEventListener("load", function () {
+    document.getElementById("background").style.backgroundImage = "url('/assets/images/BackGroupDesktop.png')";
+});
+//End lazy loading
+
+// Hàm để tăng biến count
+const incrementCount = () => {
+    // Lấy giá trị hiện tại của count từ Firebase
+    onValue(countRef, (snapshot) => {
+        let currentCount = snapshot.exists() ? snapshot.val() : 0;
+        // Tăng count lên 1
+        set(countRef, currentCount + 1);
+    }, { onlyOnce: true });
+};
+// End Hàm để tăng biến count
 
 // show alert
 const showAlert = (content = null, time = 3000) => {
@@ -63,14 +80,14 @@ const showAlert = (content = null, time = 3000) => {
 const inputCheckBoxes = document.querySelectorAll("[type='checkbox']"); // Chọn tất cả các checkbox đúng cách
 
 //comment demo
-// if (localStorage.getItem('voted') === 'true') {
-//     window.location.href = 'block.html';
-// } else {
-//     setInterval(() => {
-//         localStorage.setItem("voted", "true");
-//         window.location.reload();
-//     }, 5 * 60 * 1000);
-// }
+if (localStorage.getItem('voted') === 'true') {
+    window.location.href = 'block.html';
+} else {
+    setInterval(() => {
+        localStorage.setItem("voted", "true");
+        window.location.reload();
+    }, 5 * 60 * 1000);
+}
 // End comment demo
 
 const checkboxIds = [];
@@ -83,11 +100,6 @@ if (inputCheckBoxes) {
                 // console.log(checkboxIds);
                 // console.log("Checked checkbox ID: ", checkboxId);
 
-
-                //comment demo
-                // localStorage.setItem('voted', 'true');
-                //end comment demo
-
                 console.log(checkboxIds);
             } else {
                 // Remove the ID from the array if it is unchecked
@@ -95,6 +107,7 @@ if (inputCheckBoxes) {
                 if (index > -1) {
                     checkboxIds.splice(index, 1);
                 }
+                localStorage.setItem('voted', 'false');
                 console.log(checkboxIds);
             }
         });
@@ -177,6 +190,13 @@ if (buttonVote) {
         const buttonConfirm = document.querySelector("[button-comfirm]");
         if (buttonConfirm) {
             buttonConfirm.addEventListener("click", () => {
+
+                // Tăng biến count mỗi khi có một vote
+                incrementCount();
+
+                //comment demo
+                localStorage.setItem('voted', 'true');
+                //end comment demo
 
                 listLable.forEach(content => {
                     if (content) {

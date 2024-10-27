@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="shortcut icon" href="assets/images/favicon-vote.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <title>Ranking</title>
 </head>
@@ -13,18 +13,25 @@
 <body>
     <canvas id='canvas'></canvas>
 
-    <main class="main">
+    <main class="main" id="background">
         <div class="container">
+            <div class="main__logo--wrap">
+                <div class="main__logo">
+                    <img src="assets/images/FIT’s GOT TALENT.png" alt="">
+                </div>
+            </div>
             <div class="main__wrap">
-                <h1 class="main__title" >
-                    BẢNG XẾP HẠNG
+                <h1 class="main__title main__title--mobile">
+                    Tỷ lệ bình chọn
                 </h1>
 
-                <div class="main__box--songs" >
+                <h1 class="main__title main__title--desktop">
+                    Bảng xếp hạng
+                </h1>
+
+                <div class="main__box--songs">
                     <div class="main__box--songs-item">
-                        <div class="main_box--content">
-                            <ul list-performer></ul>
-                        </div>
+                        <ul list-performer></ul>
                     </div>
                 </div>
             </div>
@@ -36,7 +43,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
     <!-- comment demo -->
-    <!-- <script src="assets/js/congratulations.js"></script> -->
+    <script src="assets/js/congratulations.js"></script>
     <!-- End comment demo -->
 
 </body>

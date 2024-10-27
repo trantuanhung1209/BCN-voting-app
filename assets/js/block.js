@@ -1,12 +1,12 @@
-// Set initial block status
-localStorage.setItem("isBlocked", "false");
-// Reload the page every 5 minutes
+// // Set initial block status
+// localStorage.setItem("isBlocked", "false");
+// // Reload the page every 5 minutes
 
 //comment demo
-// setInterval(() => {
-//     localStorage.setItem("isBlocked", "true");
-//     window.location.reload();
-// }, 5 * 60 * 1000);
+setInterval(() => {
+    window.location.reload();
+    localStorage.setItem("isBlocked", "true");
+}, 5 * 60 * 1000);
 //End comment demo
 
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="shortcut icon" href="assets/images/favicon-vote.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <title>Voting app</title>
 </head>
@@ -17,16 +17,32 @@
             <div class="alert--content" content-block>
                 Cảm ơn bạn đã tham gia bình chọn!
             </div>
+
+            <a href="ranking.html" class="alert--link">
+                Bảng xếp hạng
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
         </div>
 
-        <main class="main">
+        <main class="main" id="background">
             <div class="container">
+                <div class="main__logo--wrap">
+                    <div class="main__logo">
+                        <img src="assets/images/FIT’s GOT TALENT.png" alt="">
+                    </div>
+                </div>
             </div>
         </main>
 
         <div class="overlay" overlay-ok></div>
     </div>
 
+    <script>
+        window.addEventListener("load", function () {
+            document.getElementById("background").style.backgroundImage = "url('/assets/images/BackGroupDesktop.png')";
+        });
+    </script>
 </body>
 
 </html>
