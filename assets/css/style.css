@@ -529,7 +529,7 @@ input[type="checkbox"]:checked+.custom-checkbox i {
 /* end alert */
 .performer--name {
     color: #16035B;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -546,6 +546,7 @@ input[type="checkbox"]:checked+.custom-checkbox i {
     color: #16035B;
     padding: 5px;
     border-radius: 8px;
+    font-size: 18px;
     font-weight: 700;
 }
 
@@ -622,6 +623,7 @@ input[type="checkbox"]:checked+.custom-checkbox i {
 
     .main__box--songs-item ul li {
         padding: 16px;
+        height: 66px;
         border-radius: 8px;
         background: #FFFFFFB8;
         backdrop-filter: blur(12px);
