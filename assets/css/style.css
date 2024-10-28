@@ -402,6 +402,13 @@ input[type="checkbox"]:checked+.custom-checkbox i {
     color: white;
 }
 
+@media (max-width: 1025px) {
+    .alert--confirm {
+        top: 25%;
+        left: 32%;
+    }
+}
+
 
 @media (max-width: 991.98px) {
     .alert--confirm {
