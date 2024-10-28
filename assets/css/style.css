@@ -76,7 +76,7 @@ body {
 @media (max-width: 575.98px) {
     .main {
         background: linear-gradient(135deg, #e2e2e2, #cfcfcf);
-        background-image: url("/assets/images/PHONEBACKGROUP.png");
+        background-image: url("/assets/images/PHONEBACKGROUP.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
